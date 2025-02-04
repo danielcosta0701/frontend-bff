@@ -4,14 +4,11 @@ import { z } from "zod"
 
 import { HtmlValidator } from "@/app/modules/validators/html-validator/models/HtmlValidator.model"
 import { HtmlValidatorViewModel } from "@/app/modules/validators/html-validator/viewmodels/HtmlValidator.viewmodel"
+import { HtmlValidatorByInputSchema } from "@/app/modules/validators/html-validator/schemas/HtmlValidatorBySchema.schema"
 
 export default function useHtmlValidatorByInput() {
   const htmlValidator = new HtmlValidator()
   const htmlValidatorViewModel = new HtmlValidatorViewModel(htmlValidator)
-
-  const HtmlValidatorByInputSchema = z.object({
-    htmlContent: z.string()
-  })
 
   const form = useForm<z.infer<typeof HtmlValidatorByInputSchema>>({
     resolver: zodResolver(HtmlValidatorByInputSchema),
