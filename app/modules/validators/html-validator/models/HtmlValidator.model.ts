@@ -1,4 +1,4 @@
-import type { IValidator } from "@/app/modules/validators/shared/interfaces/IValidator";
+import type { IValidator } from "@/app/modules/validators/interfaces/IValidator";
 
 export class HtmlValidator implements IValidator {
     async validateByInput(htmlContent: string) {

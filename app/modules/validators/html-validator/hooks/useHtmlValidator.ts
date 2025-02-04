@@ -8,21 +8,6 @@ export default function useHtmlValidator() {
     const htmlValidator = new HtmlValidator()
     const htmlValidatorViewModel = new HtmlValidatorViewModel(htmlValidator)
 
-    const handleValidateByInput = async (htmlContent: string) => {
-        try {
-            const res = await htmlValidatorViewModel.validateByInput(htmlContent)
-
-            setResults(res)
-        } catch (err) {
-            if (err instanceof Error) {
-                console.error(err.message)
-                return
-            }
-
-            console.error("Erro desconhecido", err)
-        }
-    }
-
     const handleValidateByUrl = async (url: string) => { 
         htmlValidatorViewModel.validateByUrl(url)
 
@@ -42,7 +27,6 @@ export default function useHtmlValidator() {
 
     return {
         results,
-        handleValidateByInput,
         handleValidateByUrl,
     }
 }
