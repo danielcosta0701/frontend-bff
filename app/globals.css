@@ -8,6 +8,7 @@ body {
 
 @layer base {
   :root {
+    --html5-orange: 13 77% 52%;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;

@@ -11,12 +11,12 @@ export default function useHtmlValidatorByInput() {
   const htmlValidatorViewModel = new HtmlValidatorViewModel(htmlValidator)
 
   const form = useForm<z.infer<typeof HtmlValidatorByInputSchema>>({
-    resolver: zodResolver(HtmlValidatorByInputSchema),
+    resolver: zodResolver(HtmlValidatorByInputSchema)
   })
 
   async function onSubmit(data: z.infer<typeof HtmlValidatorByInputSchema>) {
     try {
-      await htmlValidatorViewModel.validateByInput(data.htmlContent)
+      await htmlValidatorViewModel.validateByInput(data.htmlCode)
     } catch (err) {
       if (err instanceof Error) {
         console.error(err.message)
